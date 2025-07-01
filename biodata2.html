@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Indian Marriage Biodata Generator</title>
     <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
@@ -14,14 +14,14 @@
         body {
             background-color: #f5f5f5;
             margin: 0;
-            padding: 20px;
+            padding: 10px;
         }
         
         .container {
-            max-width: 900px;
+            max-width: 100%;
             margin: 0 auto;
             background-color: white;
-            padding: 20px;
+            padding: 15px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
@@ -29,32 +29,33 @@
         h1 {
             text-align: center;
             color: #FF9933;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
         }
         
         .form-section {
-            margin-bottom: 25px;
-            padding-bottom: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
             border-bottom: 1px solid #eee;
         }
         
         .form-section h2 {
             color: #FF9933;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
         }
         
         .form-row {
             display: flex;
             flex-wrap: wrap;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
         
         .form-group {
-            flex: 1;
-            min-width: 250px;
-            margin-right: 15px;
+            flex: 1 1 100%;
+            margin-right: 0;
             margin-bottom: 10px;
         }
         
@@ -63,25 +64,28 @@
             margin-bottom: 5px;
             font-weight: bold;
             color: #555;
+            font-size: 0.9rem;
         }
         
         input, select, textarea {
             width: 100%;
-            padding: 8px;
+            padding: 10px;
             border: 1px solid #ddd;
             border-radius: 4px;
+            font-size: 1rem;
         }
         
         button {
             background-color: #FF9933;
             color: white;
             border: none;
-            padding: 10px 20px;
-            font-size: 16px;
+            padding: 12px 20px;
+            font-size: 1rem;
             border-radius: 4px;
             cursor: pointer;
             display: block;
-            margin: 30px auto;
+            margin: 20px auto;
+            width: 100%;
             transition: background-color 0.3s;
         }
         
@@ -92,76 +96,79 @@
         #biodata-preview {
             display: none;
             background-color: #FFF8E1;
-            padding: 30px;
-            margin-top: 30px;
+            padding: 20px;
+            margin-top: 20px;
             border: 1px solid #FF9933;
             position: relative;
         }
         
         .ganesha-container {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         
         .ganesha-symbol {
-            font-size: 48px;
+            font-size: 2.5rem;
             color: #FF9933;
             margin-bottom: 5px;
         }
         
         .ganesha-mantra {
             font-family: 'Tangerine', cursive;
-            font-size: 36px;
+            font-size: 1.8rem;
             color: #FF9933;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         
         #biodata-preview h2 {
             color: #FF9933;
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             border-bottom: 2px solid #FF9933;
-            padding-bottom: 10px;
+            padding-bottom: 8px;
             font-family: 'Playfair Display', serif;
         }
         
         .biodata-header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
         
         .biodata-header h3 {
             color: #FF9933;
-            font-size: 24px;
+            font-size: 1.3rem;
             margin-bottom: 5px;
             font-family: 'Playfair Display', serif;
         }
         
         .biodata-section {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
         
         .biodata-section h4 {
             color: #FF9933;
             border-bottom: 1px solid #FF9933;
             padding-bottom: 5px;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
         }
         
         .biodata-row {
             display: flex;
+            flex-direction: column;
             margin-bottom: 8px;
         }
         
         .biodata-label {
             font-weight: bold;
-            width: 200px;
+            width: 100%;
             color: #555;
+            margin-bottom: 3px;
         }
         
         .biodata-value {
-            flex: 1;
+            width: 100%;
         }
         
         .print-btn {
@@ -169,12 +176,12 @@
             color: white;
             border: none;
             padding: 8px 15px;
-            font-size: 14px;
+            font-size: 0.9rem;
             border-radius: 4px;
             cursor: pointer;
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 15px;
+            right: 15px;
         }
         
         @media print {
@@ -193,6 +200,53 @@
             }
             .print-btn {
                 display: none;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .container {
+                max-width: 900px;
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+                margin-bottom: 30px;
+            }
+            
+            .form-section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .form-group {
+                flex: 1;
+                min-width: 250px;
+                margin-right: 15px;
+            }
+            
+            .ganesha-symbol {
+                font-size: 3rem;
+            }
+            
+            .ganesha-mantra {
+                font-size: 2.5rem;
+            }
+            
+            .biodata-header h3 {
+                font-size: 1.8rem;
+            }
+            
+            .biodata-row {
+                flex-direction: row;
+            }
+            
+            .biodata-label {
+                width: 200px;
+                margin-bottom: 0;
+            }
+            
+            button {
+                width: auto;
             }
         }
     </style>
@@ -325,7 +379,6 @@
                     <div class="form-group">
                         <label for="sister-name">Sister Name(s)</label>
                         <input type="text" id="sister-name">
-                       
                     </div>
                 </div>
             </div>
@@ -358,7 +411,7 @@
             
             <div class="ganesha-container">
                 <div class="ganesha-symbol" title="Lord Ganesha Blessing">ॐ</div>
-                <div class="ganesha-mantra"> SHREE GANESHAYA NAMAH </div>
+                <div class="ganesha-mantra"># II SHREE GANESHAYA NAMAH II #</div>
             </div>
             
             <div class="biodata-header">
