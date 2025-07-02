@@ -297,15 +297,11 @@
                         <input type="text" id="caste">
                     </div>
                     <div class="form-group">
-                        <label for="gotra">Gotra</label>
-                        <input type="text" id="gotra">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
                         <label for="height">Height (cm)</label>
                         <input type="number" id="height" required>
                     </div>
+                </div>
+                <div class="form-row">
                     <div class="form-group">
                         <label for="blood-group">Blood Group</label>
                         <select id="blood-group">
@@ -320,8 +316,6 @@
                             <option value="O-">O-</option>
                         </select>
                     </div>
-                </div>
-                <div class="form-row">
                     <div class="form-group">
                         <label for="complexion">Complexion</label>
                         <select id="complexion">
@@ -332,19 +326,15 @@
                             <option value="Dark">Dark</option>
                         </select>
                     </div>
+                </div>
+                <div class="form-row">
                     <div class="form-group">
                         <label for="education">Education</label>
                         <input type="text" id="education" required>
                     </div>
-                </div>
-                <div class="form-row">
                     <div class="form-group">
                         <label for="occupation">Occupation</label>
                         <input type="text" id="occupation" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="salary">Salary (Annual)</label>
-                        <input type="text" id="salary">
                     </div>
                 </div>
             </div>
@@ -377,8 +367,24 @@
                         <input type="text" id="mother-occupation">
                     </div>
                     <div class="form-group">
+                        <label for="brother-name">Brother Name(s)</label>
+                        <input type="text" id="brother-name">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="brother-occupation">Brother's Occupation</label>
+                        <input type="text" id="brother-occupation">
+                    </div>
+                    <div class="form-group">
                         <label for="sister-name">Sister Name(s)</label>
                         <input type="text" id="sister-name">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="sister-occupation">Sister's Occupation</label>
+                        <input type="text" id="sister-occupation">
                     </div>
                 </div>
             </div>
@@ -449,10 +455,6 @@
                     <div class="biodata-value" id="preview-caste"></div>
                 </div>
                 <div class="biodata-row">
-                    <div class="biodata-label">Gotra:</div>
-                    <div class="biodata-value" id="preview-gotra"></div>
-                </div>
-                <div class="biodata-row">
                     <div class="biodata-label">Height:</div>
                     <div class="biodata-value" id="preview-height"></div>
                 </div>
@@ -471,10 +473,6 @@
                 <div class="biodata-row">
                     <div class="biodata-label">Occupation:</div>
                     <div class="biodata-value" id="preview-occupation"></div>
-                </div>
-                <div class="biodata-row">
-                    <div class="biodata-label">Salary:</div>
-                    <div class="biodata-value" id="preview-salary"></div>
                 </div>
             </div>
             
@@ -501,8 +499,20 @@
                     <div class="biodata-value" id="preview-mother-occupation"></div>
                 </div>
                 <div class="biodata-row">
+                    <div class="biodata-label">Brother Name(s):</div>
+                    <div class="biodata-value" id="preview-brother-name"></div>
+                </div>
+                <div class="biodata-row">
+                    <div class="biodata-label">Brother's Occupation:</div>
+                    <div class="biodata-value" id="preview-brother-occupation"></div>
+                </div>
+                <div class="biodata-row">
                     <div class="biodata-label">Sister Name(s):</div>
                     <div class="biodata-value" id="preview-sister-name"></div>
+                </div>
+                <div class="biodata-row">
+                    <div class="biodata-label">Sister's Occupation:</div>
+                    <div class="biodata-value" id="preview-sister-occupation"></div>
                 </div>
             </div>
             
@@ -558,20 +568,21 @@
             document.getElementById('preview-manglik').textContent = document.getElementById('manglik').value;
             document.getElementById('preview-religion').textContent = document.getElementById('religion').value;
             document.getElementById('preview-caste').textContent = document.getElementById('caste').value || 'N/A';
-            document.getElementById('preview-gotra').textContent = document.getElementById('gotra').value || 'N/A';
             document.getElementById('preview-height').textContent = document.getElementById('height').value + ' cm';
             document.getElementById('preview-blood-group').textContent = document.getElementById('blood-group').value || 'N/A';
             document.getElementById('preview-complexion').textContent = document.getElementById('complexion').value || 'N/A';
             document.getElementById('preview-education').textContent = document.getElementById('education').value;
             document.getElementById('preview-occupation').textContent = document.getElementById('occupation').value;
-            document.getElementById('preview-salary').textContent = document.getElementById('salary').value || 'N/A';
             
             document.getElementById('preview-grandfather-name').textContent = document.getElementById('grandfather-name').value || 'N/A';
             document.getElementById('preview-father-name').textContent = document.getElementById('father-name').value;
             document.getElementById('preview-father-occupation').textContent = document.getElementById('father-occupation').value;
             document.getElementById('preview-mother-name').textContent = document.getElementById('mother-name').value;
             document.getElementById('preview-mother-occupation').textContent = document.getElementById('mother-occupation').value || 'N/A';
+            document.getElementById('preview-brother-name').textContent = document.getElementById('brother-name').value || 'N/A';
+            document.getElementById('preview-brother-occupation').textContent = document.getElementById('brother-occupation').value || 'N/A';
             document.getElementById('preview-sister-name').textContent = document.getElementById('sister-name').value || 'N/A';
+            document.getElementById('preview-sister-occupation').textContent = document.getElementById('sister-occupation').value || 'N/A';
             
             document.getElementById('preview-address').textContent = document.getElementById('address').value;
             document.getElementById('preview-contact-no').textContent = document.getElementById('contact-no').value;
