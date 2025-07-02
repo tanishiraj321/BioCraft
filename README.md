@@ -417,7 +417,7 @@
             
             <div class="ganesha-container">
                 <div class="ganesha-symbol" title="Lord Ganesha Blessing">ॐ</div>
-                <div class="ganesha-mantra"># II SHREE GANESHAYA NAMAH II #</div>
+                <div class="ganesha-mantra"> SHREE GANESHAYA NAMAH </div>
             </div>
             
             <div class="biodata-header">
@@ -511,7 +511,7 @@
                     <div class="biodata-value" id="preview-sister-name"></div>
                 </div>
                 <div class="biodata-row">
-                    <div class="biodata-label">Sister's Occupation:</div>
+                    <div class="biodata-label">Sister's Occupation: </div>
                     <div class="biodata-value" id="preview-sister-occupation"></div>
                 </div>
             </div>
