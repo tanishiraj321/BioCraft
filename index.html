@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Marriage Biodata Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Indian Marriage Biodata Generator</h1>
+
+        <form id="biodata-form">
+            <div class="form-section">
+                <h2>Personal Details</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" id="dob" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="pob">Place of Birth</label>
+                        <input type="text" id="pob" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="rashi">Rashi</label>
+                        <input type="text" id="rashi">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="manglik">Manglik</label>
+                        <select id="manglik">
+                            <option value="Yes">Yes</option>
+                            <option value="No" selected>No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="religion">Religion</label>
+                        <input type="text" id="religion" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="caste">Caste</label>
+                        <input type="text" id="caste">
+                    </div>
+                    <div class="form-group">
+                        <label for="height">Height (cm)</label>
+                        <input type="number" id="height" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="blood-group">Blood Group</label>
+                        <select id="blood-group">
+                            <option value="">Select</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="complexion">Complexion</label>
+                        <select id="complexion">
+                            <option value="">Select</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Wheatish">Wheatish</option>
+                            <option value="Wheatish Brown">Wheatish Brown</option>
+                            <option value="Dark">Dark</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="education">Education</label>
+                        <input type="text" id="education" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="occupation">Occupation</label>
+                        <input type="text" id="occupation" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Family Details</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="grandfather-name">GrandFather Name</label>
+                        <input type="text" id="grandfather-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="father-name">Father Name</label>
+                        <input type="text" id="father-name" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="father-occupation">Father's Occupation</label>
+                        <input type="text" id="father-occupation" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mother-name">Mother Name</label>
+                        <input type="text" id="mother-name" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="mother-occupation">Mother's Occupation</label>
+                        <input type="text" id="mother-occupation">
+                    </div>
+                    <div class="form-group">
+                        <label for="brother-name">Brother Name(s)</label>
+                        <input type="text" id="brother-name">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="brother-occupation">Brother's Occupation</label>
+                        <input type="text" id="brother-occupation">
+                    </div>
+                    <div class="form-group">
+                        <label for="sister-name">Sister Name(s)</label>
+                        <input type="text" id="sister-name">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="sister-occupation">Sister's Occupation</label>
+                        <input type="text" id="sister-occupation">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Contact Details</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <textarea id="address" rows="3" required></textarea>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contact-no">Contact No.</label>
+                        <input type="tel" id="contact-no" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email">
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" id="generate-btn">Generate Biodata</button>
+        </form>
+
+        <div id="biodata-preview">
+            <button class="print-btn" onclick="window.print()">Print Biodata</button>
+            <div class="ganesha-container">
+                <div class="ganesha-symbol">ॐ</div>
+                <div class="ganesha-mantra">SHREE GANESHAYA NAMAH</div>
+            </div>
+            <div class="biodata-header"><h3>MARRIAGE BIODATA</h3></div>
+            
+            <div class="biodata-section">
+                <h4>I. Personal Details</h4>
+                <div class="biodata-content">
+                    <p><strong>Name:</strong> <span id="preview-name"></span></p>
+                    <p><strong>Date of Birth:</strong> <span id="preview-dob"></span></p>
+                    <p><strong>Place of Birth:</strong> <span id="preview-pob"></span></p>
+                    <p><strong>Rashi:</strong> <span id="preview-rashi"></span></p>
+                    <p><strong>Manglik:</strong> <span id="preview-manglik"></span></p>
+                    <p><strong>Religion:</strong> <span id="preview-religion"></span></p>
+                    <p><strong>Caste:</strong> <span id="preview-caste"></span></p>
+                    <p><strong>Height:</strong> <span id="preview-height"></span></p>
+                    <p><strong>Complexion:</strong> <span id="preview-complexion"></span></p>
+                    <p><strong>Blood Group:</strong> <span id="preview-blood-group"></span></p>
+                    <p><strong>Education:</strong> <span id="preview-education"></span></p>
+                    <p><strong>Occupation:</strong> <span id="preview-occupation"></span></p>
+                </div>
+            </div>
+
+            <div class="biodata-section">
+                <h4>II. Family Details</h4>
+                <div class="biodata-content">
+                    <p><strong>Grandfather Name:</strong> <span id="preview-grandfather-name"></span></p>
+                    <p><strong>Father's Name:</strong> <span id="preview-father-name"></span></p>
+                    <p><strong>Father's Occupation:</strong> <span id="preview-father-occupation"></span></p>
+                    <p><strong>Mother's Name:</strong> <span id="preview-mother-name"></span></p>
+                    <p><strong>Mother's Occupation:</strong> <span id="preview-mother-occupation"></span></p>
+                    <p><strong>Brother Name(s):</strong> <span id="preview-brother-name"></span></p>
+                    <p><strong>Brother's Occupation:</strong> <span id="preview-brother-occupation"></span></p>
+                    <p><strong>Sister Name(s):</strong> <span id="preview-sister-name"></span></p>
+                    <p><strong>Sister's Occupation:</strong> <span id="preview-sister-occupation"></span></p>
+                </div>
+            </div>
+
+            <div class="biodata-section">
+                <h4>III. Contact Details</h4>
+                <div class="biodata-content">
+                    <p><strong>Address:</strong> <span id="preview-address"></span></p>
+                    <p><strong>Contact No.:</strong> <span id="preview-contact-no"></span></p>
+                    <p><strong>Email:</strong> <span id="preview-email"></span></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
