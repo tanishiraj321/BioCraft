@@ -1,599 +1,92 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Indian Marriage Biodata Generator</title>
-    <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-    <style>
-        * {
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-        
-        body {
-            background-color: #f5f5f5;
-            margin: 0;
-            padding: 10px;
-        }
-        
-        .container {
-            max-width: 100%;
-            margin: 0 auto;
-            background-color: white;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        h1 {
-            text-align: center;
-            color: #FF9933;
-            margin-bottom: 20px;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-        }
-        
-        .form-section {
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .form-section h2 {
-            color: #FF9933;
-            margin-bottom: 10px;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-        }
-        
-        .form-row {
-            display: flex;
-            flex-wrap: wrap;
-            margin-bottom: 10px;
-        }
-        
-        .form-group {
-            flex: 1 1 100%;
-            margin-right: 0;
-            margin-bottom: 10px;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-            color: #555;
-            font-size: 0.9rem;
-        }
-        
-        input, select, textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 1rem;
-        }
-        
-        button {
-            background-color: #FF9933;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            font-size: 1rem;
-            border-radius: 4px;
-            cursor: pointer;
-            display: block;
-            margin: 20px auto;
-            width: 100%;
-            transition: background-color 0.3s;
-        }
-        
-        button:hover {
-            background-color: #e68a2e;
-        }
-        
-        #biodata-preview {
-            display: none;
-            background-color: #FFF8E1;
-            padding: 20px;
-            margin-top: 20px;
-            border: 1px solid #FF9933;
-            position: relative;
-        }
-        
-        .ganesha-container {
-            text-align: center;
-            margin-bottom: 15px;
-        }
-        
-        .ganesha-symbol {
-            font-size: 2.5rem;
-            color: #FF9933;
-            margin-bottom: 5px;
-        }
-        
-        .ganesha-mantra {
-            font-family: 'Tangerine', cursive;
-            font-size: 1.8rem;
-            color: #FF9933;
-            margin-bottom: 15px;
-        }
-        
-        #biodata-preview h2 {
-            color: #FF9933;
-            text-align: center;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #FF9933;
-            padding-bottom: 8px;
-            font-family: 'Playfair Display', serif;
-        }
-        
-        .biodata-header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        
-        .biodata-header h3 {
-            color: #FF9933;
-            font-size: 1.3rem;
-            margin-bottom: 5px;
-            font-family: 'Playfair Display', serif;
-        }
-        
-        .biodata-section {
-            margin-bottom: 20px;
-        }
-        
-        .biodata-section h4 {
-            color: #FF9933;
-            border-bottom: 1px solid #FF9933;
-            padding-bottom: 5px;
-            margin-bottom: 10px;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.1rem;
-        }
-        
-        .biodata-row {
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 8px;
-        }
-        
-        .biodata-label {
-            font-weight: bold;
-            width: 100%;
-            color: #555;
-            margin-bottom: 3px;
-        }
-        
-        .biodata-value {
-            width: 100%;
-        }
-        
-        .print-btn {
-            background-color: #FF9933;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            font-size: 0.9rem;
-            border-radius: 4px;
-            cursor: pointer;
-            position: absolute;
-            top: 15px;
-            right: 15px;
-        }
-        
-        @media print {
-            body * {
-                visibility: hidden;
-            }
-            #biodata-preview, #biodata-preview * {
-                visibility: visible;
-            }
-            #biodata-preview {
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 100%;
-                border: none;
-            }
-            .print-btn {
-                display: none;
-            }
-        }
-        
-        @media (min-width: 768px) {
-            .container {
-                max-width: 900px;
-                padding: 20px;
-            }
-            
-            h1 {
-                font-size: 2rem;
-                margin-bottom: 30px;
-            }
-            
-            .form-section h2 {
-                font-size: 1.5rem;
-            }
-            
-            .form-group {
-                flex: 1;
-                min-width: 250px;
-                margin-right: 15px;
-            }
-            
-            .ganesha-symbol {
-                font-size: 3rem;
-            }
-            
-            .ganesha-mantra {
-                font-size: 2.5rem;
-            }
-            
-            .biodata-header h3 {
-                font-size: 1.8rem;
-            }
-            
-            .biodata-row {
-                flex-direction: row;
-            }
-            
-            .biodata-label {
-                width: 200px;
-                margin-bottom: 0;
-            }
-            
-            button {
-                width: auto;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Indian Marriage Biodata Generator</h1>
-        
-        <form id="biodata-form">
-            <div class="form-section">
-                <h2>Personal Details</h2>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="dob">Date of Birth</label>
-                        <input type="date" id="dob" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="pob">Place of Birth</label>
-                        <input type="text" id="pob" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="rashi">Rashi</label>
-                        <input type="text" id="rashi">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="manglik">Manglik</label>
-                        <select id="manglik">
-                            <option value="Yes">Yes</option>
-                            <option value="No" selected>No</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="religion">Religion</label>
-                        <input type="text" id="religion" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="caste">Caste</label>
-                        <input type="text" id="caste">
-                    </div>
-                    <div class="form-group">
-                        <label for="height">Height (cm)</label>
-                        <input type="number" id="height" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="blood-group">Blood Group</label>
-                        <select id="blood-group">
-                            <option value="">Select</option>
-                            <option value="A+">A+</option>
-                            <option value="A-">A-</option>
-                            <option value="B+">B+</option>
-                            <option value="B-">B-</option>
-                            <option value="AB+">AB+</option>
-                            <option value="AB-">AB-</option>
-                            <option value="O+">O+</option>
-                            <option value="O-">O-</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="complexion">Complexion</label>
-                        <select id="complexion">
-                            <option value="">Select</option>
-                            <option value="Fair">Fair</option>
-                            <option value="Wheatish">Wheatish</option>
-                            <option value="Wheatish Brown">Wheatish Brown</option>
-                            <option value="Dark">Dark</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="education">Education</label>
-                        <input type="text" id="education" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="occupation">Occupation</label>
-                        <input type="text" id="occupation" required>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="form-section">
-                <h2>Family Details</h2>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="grandfather-name">GrandFather Name</label>
-                        <input type="text" id="grandfather-name">
-                    </div>
-                    <div class="form-group">
-                        <label for="father-name">Father Name</label>
-                        <input type="text" id="father-name" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="father-occupation">Father's Occupation</label>
-                        <input type="text" id="father-occupation" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="mother-name">Mother Name</label>
-                        <input type="text" id="mother-name" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="mother-occupation">Mother's Occupation</label>
-                        <input type="text" id="mother-occupation">
-                    </div>
-                    <div class="form-group">
-                        <label for="brother-name">Brother Name(s)</label>
-                        <input type="text" id="brother-name">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="brother-occupation">Brother's Occupation</label>
-                        <input type="text" id="brother-occupation">
-                    </div>
-                    <div class="form-group">
-                        <label for="sister-name">Sister Name(s)</label>
-                        <input type="text" id="sister-name">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="sister-occupation">Sister's Occupation</label>
-                        <input type="text" id="sister-occupation">
-                    </div>
-                </div>
-            </div>
-            
-            <div class="form-section">
-                <h2>Contact Details</h2>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="address">Address</label>
-                        <textarea id="address" rows="3" style="width: 100%;" required></textarea>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="contact-no">Contact No.</label>
-                        <input type="tel" id="contact-no" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email">
-                    </div>
-                </div>
-            </div>
-            
-            <button type="button" id="generate-btn">Generate Biodata</button>
-        </form>
-        
-        <div id="biodata-preview">
-            <button class="print-btn" onclick="window.print()">Print Biodata</button>
-            
-            <div class="ganesha-container">
-                <div class="ganesha-symbol" title="Lord Ganesha Blessing">ॐ</div>
-                <div class="ganesha-mantra"> SHREE GANESHAYA NAMAH </div>
-            </div>
-            
-            <div class="biodata-header">
-                <h3>MARRIAGE BIODATA</h3>
-            </div>
-            
-            <div class="biodata-section">
-                <h4>PERSONAL DETAILS</h4>
-                <div class="biodata-row">
-                    <div class="biodata-label">Name:</div>
-                    <div class="biodata-value" id="preview-name"></div>
-                </div>
-                <div class="biodata-row">
-                    <div class="biodata-label">Date of Birth:</div>
-                    <div class="biodata-value" id="preview-dob"></div>
-                </div>
-                <div class="biodata-row">
-                    <div class="biodata-label">Place of Birth:</div>
-                    <div class="biodata-value" id="preview-pob"></div>
-                </div>
-                <div class="biodata-row">
-                    <div class="biodata-label">Rashi:</div>
-                    <div class="biodata-value" id="preview-rashi"></div>
-                </div>
-                <div class="biodata-row">
-                    <div class="biodata-label">Manglik:</div>
-                    <div class="biodata-value" id="preview-manglik"></div>
-                </div>
-                <div class="biodata-row">
-                    <div class="biodata-label">Religion:</div>
-                    <div class="biodata-value" id="preview-religion"></div>
-                </div>
-                <div class="biodata-row">
-                    <div class="biodata-label">Caste:</div>
-                    <div class="biodata-value" id="preview-caste"></div>
-                </div>
-                <div class="biodata-row">
-                    <div class="biodata-label">Height:</div>
-                    <div class="biodata-value" id="preview-height"></div>
-                </div>
-                <div class="biodata-row">
-                    <div class="biodata-label">Blood Group:</div>
-                    <div class="biodata-value" id="preview-blood-group"></div>
-                </div>
-                <div class="biodata-row">
-                    <div class="biodata-label">Complexion:</div>
-                    <div class="biodata-value" id="preview-complexion"></div>
-                </div>
-                <div class="biodata-row">
-                    <div class="biodata-label">Education:</div>
-                    <div class="biodata-value" id="preview-education"></div>
-                </div>
-                <div class="biodata-row">
-                    <div class="biodata-label">Occupation:</div>
-                    <div class="biodata-value" id="preview-occupation"></div>
-                </div>
-            </div>
-            
-            <div class="biodata-section">
-                <h4>FAMILY DETAILS</h4>
-                <div class="biodata-row">
-                    <div class="biodata-label">GrandFather Name:</div>
-                    <div class="biodata-value" id="preview-grandfather-name"></div>
-                </div>
-                <div class="biodata-row">
-                    <div class="biodata-label">Father Name:</div>
-                    <div class="biodata-value" id="preview-father-name"></div>
-                </div>
-                <div class="biodata-row">
-                    <div class="biodata-label">Father's Occupation:</div>
-                    <div class="biodata-value" id="preview-father-occupation"></div>
-                </div>
-                <div class="biodata-row">
-                    <div class="biodata-label">Mother Name:</div>
-                    <div class="biodata-value" id="preview-mother-name"></div>
-                </div>
-                <div class="biodata-row">
-                    <div class="biodata-label">Mother's Occupation:</div>
-                    <div class="biodata-value" id="preview-mother-occupation"></div>
-                </div>
-                <div class="biodata-row">
-                    <div class="biodata-label">Brother Name(s):</div>
-                    <div class="biodata-value" id="preview-brother-name"></div>
-                </div>
-                <div class="biodata-row">
-                    <div class="biodata-label">Brother's Occupation:</div>
-                    <div class="biodata-value" id="preview-brother-occupation"></div>
-                </div>
-                <div class="biodata-row">
-                    <div class="biodata-label">Sister Name(s):</div>
-                    <div class="biodata-value" id="preview-sister-name"></div>
-                </div>
-                <div class="biodata-row">
-                    <div class="biodata-label">Sister's Occupation: </div>
-                    <div class="biodata-value" id="preview-sister-occupation"></div>
-                </div>
-            </div>
-            
-            <div class="biodata-section">
-                <h4>CONTACT DETAILS</h4>
-                <div class="biodata-row">
-                    <div class="biodata-label">Address:</div>
-                    <div class="biodata-value" id="preview-address"></div>
-                </div>
-                <div class="biodata-row">
-                    <div class="biodata-label">Contact No.:</div>
-                    <div class="biodata-value" id="preview-contact-no"></div>
-                </div>
-                <div class="biodata-row">
-                    <div class="biodata-label">Email:</div>
-                    <div class="biodata-value" id="preview-email"></div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <script>
-        document.getElementById('generate-btn').addEventListener('click', function() {
-            // Validate required fields
-            const requiredFields = ['name', 'dob', 'pob', 'religion', 'height', 'education', 'occupation', 
-                                   'father-name', 'father-occupation', 'mother-name', 'address', 'contact-no'];
-            
-            let isValid = true;
-            requiredFields.forEach(field => {
-                const element = document.getElementById(field);
-                if (!element.value.trim()) {
-                    isValid = false;
-                    element.style.borderColor = 'red';
-                } else {
-                    element.style.borderColor = '#ddd';
-                }
-            });
-            
-            if (!isValid) {
-                alert('Please fill all required fields (marked in red)');
-                return;
-            }
-            
-            // Format date of birth
-            const dob = document.getElementById('dob').value;
-            const formattedDob = dob ? new Date(dob).toLocaleDateString('en-IN') : '';
-            
-            // Update preview with form values
-            document.getElementById('preview-name').textContent = document.getElementById('name').value;
-            document.getElementById('preview-dob').textContent = formattedDob;
-            document.getElementById('preview-pob').textContent = document.getElementById('pob').value;
-            document.getElementById('preview-rashi').textContent = document.getElementById('rashi').value || 'N/A';
-            document.getElementById('preview-manglik').textContent = document.getElementById('manglik').value;
-            document.getElementById('preview-religion').textContent = document.getElementById('religion').value;
-            document.getElementById('preview-caste').textContent = document.getElementById('caste').value || 'N/A';
-            document.getElementById('preview-height').textContent = document.getElementById('height').value + ' cm';
-            document.getElementById('preview-blood-group').textContent = document.getElementById('blood-group').value || 'N/A';
-            document.getElementById('preview-complexion').textContent = document.getElementById('complexion').value || 'N/A';
-            document.getElementById('preview-education').textContent = document.getElementById('education').value;
-            document.getElementById('preview-occupation').textContent = document.getElementById('occupation').value;
-            
-            document.getElementById('preview-grandfather-name').textContent = document.getElementById('grandfather-name').value || 'N/A';
-            document.getElementById('preview-father-name').textContent = document.getElementById('father-name').value;
-            document.getElementById('preview-father-occupation').textContent = document.getElementById('father-occupation').value;
-            document.getElementById('preview-mother-name').textContent = document.getElementById('mother-name').value;
-            document.getElementById('preview-mother-occupation').textContent = document.getElementById('mother-occupation').value || 'N/A';
-            document.getElementById('preview-brother-name').textContent = document.getElementById('brother-name').value || 'N/A';
-            document.getElementById('preview-brother-occupation').textContent = document.getElementById('brother-occupation').value || 'N/A';
-            document.getElementById('preview-sister-name').textContent = document.getElementById('sister-name').value || 'N/A';
-            document.getElementById('preview-sister-occupation').textContent = document.getElementById('sister-occupation').value || 'N/A';
-            
-            document.getElementById('preview-address').textContent = document.getElementById('address').value;
-            document.getElementById('preview-contact-no').textContent = document.getElementById('contact-no').value;
-            document.getElementById('preview-email').textContent = document.getElementById('email').value || 'N/A';
-            
-            // Show the preview
-            document.getElementById('biodata-preview').style.display = 'block';
-            
-            // Scroll to preview
-            document.getElementById('biodata-preview').scrollIntoView({ behavior: 'smooth' });
-        });
-    </script>
-</body>
-</html>
+
+# **Indian Marriage Biodata Generator**
+
+The **Indian Marriage Biodata Generator** is a simple, elegant, and easy-to-use web application that helps users create a complete marriage biodata in a printable format.
+It includes fields for **personal details, family details, and contact details**, and generates a well-styled biodata preview with an option to print.
+
+---
+
+## **📌 Features**
+
+### ✅ **User-Friendly Form**
+
+* Collects personal, family, and contact information
+* Highlights missing required fields
+* Date of Birth is auto-formatted to Indian format (DD/MM/YYYY)
+
+### ✅ **Instant Biodata Preview**
+
+* Displays a beautifully designed biodata template
+* Includes:
+
+  * “ॐ” (Ganesha symbol)
+  * “Shree Ganeshaya Namah” header
+  * Structured sections with clean formatting
+
+### ✅ **Print-Ready Layout**
+
+* A dedicated print view hides unnecessary elements
+* Generates a clean biodata PDF through the browser’s print option
+
+### ✅ **Responsive and Clean UI**
+
+* Modern fonts and colors
+* Card-style layout
+* Works well on desktop and mobile devices
+
+---
+
+## **🛠️ Technologies Used**
+
+* **HTML5**
+* **CSS3** (Responsive design + styling)
+* **JavaScript** (Form validation + biodata generation)
+* **Google Fonts** (Playfair Display, Poppins, Tangerine)
+
+---
+
+## **📄 How to Use**
+
+1. Open the `biodata2.html` file in any web browser.
+2. Fill in the necessary details in the form:
+
+   * Personal Details
+   * Family Details
+   * Contact Information
+3. Click **“Generate Biodata”**.
+4. A formatted biodata preview will appear below the form.
+5. Click **“Print Biodata”** (button on the top-right corner of the preview).
+6. Save or print your biodata as a PDF.
+
+---
+
+## **📂 Project Structure**
+
+```
+/project-folder
+│── biodata2.html   # Main application file
+```
+
+All CSS and JavaScript are included inside the HTML for simplicity.
+
+---
+
+## **📸 Preview Sections Included**
+
+* Personal Details
+* Family Details
+* Contact Details
+* Ganesha Header + “Marriage Biodata” Title
+* Print-Ready Output
+
+---
+
+## **✨ Future Enhancements (Optional)**
+
+* Add image upload for profile picture
+* Save biodata as downloadable PDF directly
+* Add multiple themes (traditional / modern)
+* Store input temporarily using LocalStorage
+* Dark mode support
+
